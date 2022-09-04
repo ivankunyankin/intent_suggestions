@@ -1,6 +1,6 @@
 ### Intent suggestions
 
-Early user intent detection using n-gram models
+Early user intent detection using n-gram language models
 
 <p align="center"><img src="img.png" width="50%"></p>
 
@@ -9,10 +9,14 @@ The idea behind intent suggestions is similar to autofill when we use words that
 The proposed approach uses `n` recursively initialised models. Each next model uses a smaller `n`. I.e. a model initialised with `n=3` will include three models (with `n=3`, `n=2` and `n=1`)
 This recursive approach allows to also take into account frequency counts from smaller n-grams in case there is no match for the parent model.
 
-### Usage
+### Installation
+```
+pip install intent_suggestions
+```
+### Quickstart
 
 ```
-from model import IntentSuggester
+from intent_suggestions import IntentSuggester
 
 model = IntentSuggester()
 
@@ -35,4 +39,4 @@ Given that we are trying to predict a user's intent rather the next word, we'll 
 
 ### References
 
-The approach was insipred by [this](https://habr.com/ru/post/346578/) work
+The approach was inspired by [this](https://habr.com/ru/post/346578/) work
