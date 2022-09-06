@@ -1,6 +1,6 @@
 ### Intent suggestions
 
-Early user intent detection using n-gram language models
+Python package for early user intent detection using n-gram language models
 
 <p align="center"><img src="img.png" width="50%"></p>
 
@@ -14,7 +14,7 @@ This recursive approach allows to also take into account frequency counts from s
 pip install intent_suggestions
 ```
 ### Quickstart
-
+`Fit` takes a list of items (training phrases) and a list of labels (intents) as input.
 ```
 from intent_suggestions import IntentSuggester
 
@@ -31,6 +31,7 @@ Output:
 ```
 {'intent_1': 0.9902, 'intent_2': 0.0098}
 ```
+During training the model splits phrases by words. Thus, it works better when given input phrases with *complete last words*. For example, instead of making a prediction when a user typed "five six se", wait until they type "five six seven" and put a space. Now make the prediction.
 
 ### Notation
 
